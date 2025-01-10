@@ -1,0 +1,50 @@
+OUT "******CALC******"
+@start
+OUT '1._add\n2._sub\n3._div\n4._mul\n5._mod\n6._pwr'
+IN op
+OUT 'num1'
+IN num1
+OUT 'num2'
+IN num2
+GOTO @add IF mem.vars["op"]=="1"
+GOTO @sub IF mem.vars["op"]=="2"
+GOTO @div IF mem.vars["op"]=="3"
+GOTO @mul IF mem.vars["op"]=="4"
+GOTO @mod IF mem.vars["op"]=="5"
+GOTO @pwr IF mem.vars["op"]=="6"
+@add
+ADD mem.vars["num1"] mem.vars["num2"] result
+OUT mem.vars["result"]
+IN holder
+CLR
+GOTO @start IF True
+@sub
+SUB mem.vars["num1"] mem.vars["num2"] result
+OUT mem.vars["result"]
+IN holder
+CLR
+GOTO @start IF True
+@div
+DIV mem.vars["num1"] mem.vars["num2"] result
+OUT mem.vars["result"]
+IN holder
+CLR
+GOTO @start IF True
+@mul
+MUL mem.vars["num1"] mem.vars["num2"] result
+OUT mem.vars["result"]
+IN holder
+CLR
+GOTO @start IF True
+@mod
+MOD mem.vars["num1"] mem.vars["num2"] result
+OUT mem.vars["result"]
+IN holder
+CLR
+GOTO @start IF True
+@pwr
+PWR mem.vars["num1"] mem.vars["num2"] result
+OUT mem.vars["result"]
+IN holder
+CLR
+GOTO @start IF True
